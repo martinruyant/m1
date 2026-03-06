@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Legend Builder</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="app">
+      <header>
+        <h1>Legend Builder: A Game About You</h1>
+        <p class="subtitle">Craft your persona, then prove your reflexes in a personalized challenge.</p>
+      </header>
+
+      <section id="setup" class="card active" aria-live="polite">
+        <h2>Create your hero profile</h2>
+        <form id="profile-form" novalidate>
+          <label>
+            Your name
+            <input id="player-name" name="player-name" maxlength="22" required placeholder="Type your name" />
+          </label>
+
+          <label>
+            Your energy today
+            <select id="player-vibe" name="player-vibe">
+              <option value="focused">Focused strategist</option>
+              <option value="creative">Creative spark</option>
+              <option value="fearless">Fearless challenger</option>
+              <option value="chill">Calm and chill</option>
+            </select>
+          </label>
+
+          <label>
+            One thing you are great at
+            <input id="player-strength" name="player-strength" maxlength="40" placeholder="e.g., solving tricky problems fast" />
+          </label>
+
+          <button type="submit">Start my legend</button>
+        </form>
+        <p id="setup-error" class="error" role="alert"></p>
+      </section>
+
+      <section id="game" class="card" aria-live="polite">
+        <div class="hud">
+          <p id="mission-text" class="mission"></p>
+          <div class="stats">
+            <span>Time: <strong id="time-left">60</strong>s</span>
+            <span>Score: <strong id="score">0</strong></span>
+            <span>Combo: <strong id="combo">0</strong>x</span>
+          </div>
+        </div>
+
+        <div id="arena" class="arena" aria-label="Game arena" role="application">
+          <button id="target" class="target" aria-label="Tap target"></button>
+        </div>
+
+        <p id="feedback" class="feedback">Click the glowing core as fast as you can.</p>
+      </section>
+
+      <section id="results" class="card" aria-live="polite">
+        <h2 id="result-title"></h2>
+        <p id="result-message"></p>
+        <div class="result-grid">
+          <p>Final score: <strong id="final-score"></strong></p>
+          <p>Best combo: <strong id="best-combo"></strong></p>
+          <p>Average reaction: <strong id="avg-reaction"></strong> ms</p>
+        </div>
+        <button id="play-again">Play again</button>
+      </section>
+    </main>
+
+    <script src="game.js"></script>
+  </body>
+</html>
